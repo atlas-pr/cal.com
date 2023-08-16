@@ -93,3 +93,7 @@ export const ALLOWED_HOSTNAMES = JSON.parse(`[${process.env.ALLOWED_HOSTNAMES ||
 export const RESERVED_SUBDOMAINS = JSON.parse(`[${process.env.RESERVED_SUBDOMAINS || ""}]`) as string[];
 
 export const ORGANIZATION_MIN_SEATS = 30;
+
+export const ATLAS_BUNDLE = process.env.NEXT_ATLAS_BUNDLE;
+export const ATLAS_APP_ID = process.env.NEXT_ATLAS_APP_ID;
+export const ATLAS_API = process.env.NEXT_ATLAS_API;
