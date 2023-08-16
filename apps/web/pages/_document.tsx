@@ -34,6 +34,8 @@ class MyDocument extends Document<Props> {
   }
 
   render() {
+    const ATLAS_BUNDLE = "https://atlas-dev.in.ngrok.io/client-js/atlas.bundle.js";
+    const ATLAS_APP_ID = "4lyu8tx6nr";
     const { locale } = this.props.__NEXT_DATA__;
     const { isEmbed, embedColorScheme } = this.props;
     const nonceParsed = z.string().safeParse(this.props.nonce);
@@ -51,7 +53,7 @@ class MyDocument extends Document<Props> {
           <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1C1C1C" />
           <script
             dangerouslySetInnerHTML={{
-              __html: `(()=>{"use strict";var t,e={appId:"4lyu8tx6nr",v:2,q:[],call:function(){this.q.push(arguments)}};window.Atlas=e;var n=document.createElement("script");n.async=!0,n.src="https://atlas-dev.in.ngrok.io/client-js/atlas.bundle.js";var s=document.getElementsByTagName("script")[0];null===(t=s.parentNode)||void 0===t||t.insertBefore(n,s)})();window.Atlas.call("start");`,
+              __html: `(()=>{"use strict";var t,e={appId:"${ATLAS_APP_ID}",v:2,q:[],call:function(){this.q.push(arguments)}};window.Atlas=e;var n=document.createElement("script");n.async=!0,n.src="${ATLAS_BUNDLE}";var s=document.getElementsByTagName("script")[0];null===(t=s.parentNode)||void 0===t||t.insertBefore(n,s)})();window.Atlas.call("start");`,
             }}
           />
         </Head>

@@ -70,6 +70,7 @@ import {
   Users,
 } from "@calcom/ui/components/icon";
 
+import getAtlasIdentity from "@lib/atlas/identify";
 import useMeQuery from "@lib/hooks/useMeQuery";
 
 import PageWrapper from "@components/PageWrapper";
@@ -933,6 +934,21 @@ const EventTypesPage = () => {
       !!orgBranding && !document.cookie.includes("calcom-profile-banner=1") && !user?.completedOnboarding
     );
   }, [orgBranding, user]);
+
+  useEffect(() => {
+    // this is the first page to land the user lands post login.
+    if (!window.Atlas) return;
+
+    const { atlasId, isVisitor, email, userId, appId } = getAtlasIdentity();
+    if (user && atlasId && email && userId != user.id) {
+      window.Atlas.call("identify", {
+        userId: user.id,
+        name: user.name,
+        email: user.email,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
     <ShellMain
