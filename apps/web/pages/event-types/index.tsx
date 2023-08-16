@@ -437,7 +437,9 @@ export const EventTypeList = ({ group, groupIndex, readOnly, types }: EventTypeL
                                   name="Hidden"
                                   checked={!type.hidden}
                                   onCheckedChange={() => {
-                                    setHiddenMutation.mutate({ id: type.id, hidden: !type.hidden });
+                                    showToast("Unable to change the event type display", "error");
+                                    throw new Error("Unable to change the event type display");
+                                    // setHiddenMutation.mutate({ id: type.id, hidden: !type.hidden });
                                   }}
                                 />
                               </div>
