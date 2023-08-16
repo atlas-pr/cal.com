@@ -39,7 +39,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: calendso
         ports:
-          - 5432:5432
+          - 6532:5432
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/dangerous-git-checkout

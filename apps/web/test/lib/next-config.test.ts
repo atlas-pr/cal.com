@@ -46,7 +46,7 @@ describe("next.config.js - Org Rewrite", () => {
       ).toEqual("org");
 
       expect(
-        orgHostRegExp(subdomainRegExp).exec("localhost:3000")
+        orgHostRegExp(subdomainRegExp).exec("localhost:9000")
       ).toEqual(null);
     });
 

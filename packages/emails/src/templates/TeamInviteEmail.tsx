@@ -44,7 +44,7 @@ export const TeamInviteEmail = (
         src={
           IS_PRODUCTION
             ? WEBAPP_URL + "/emails/calendar-email-hero.png"
-            : "http://localhost:3000/emails/calendar-email-hero.png"
+            : "http://localhost:9000/emails/calendar-email-hero.png"
         }
         alt=""
       />
@@ -94,7 +94,7 @@ export const TeamInviteEmail = (
             iconsrc={
               IS_PRODUCTION
                 ? WEBAPP_URL + "/emails/choose-username@2x.png"
-                : "http://localhost:3000/emails/choose-username@2x.png"
+                : "http://localhost:9000/emails/choose-username@2x.png"
             }
           />
           <EmailStep
@@ -102,7 +102,7 @@ export const TeamInviteEmail = (
             iconsrc={
               IS_PRODUCTION
                 ? WEBAPP_URL + "/emails/calendar@2x.png"
-                : "http://localhost:3000/emails/calendar@2x.png"
+                : "http://localhost:9000/emails/calendar@2x.png"
             }
           />
           <EmailStep
@@ -110,7 +110,7 @@ export const TeamInviteEmail = (
             iconsrc={
               IS_PRODUCTION
                 ? WEBAPP_URL + "/emails/clock@2x.png"
-                : "http://localhost:3000/emails/clock@2x.png"
+                : "http://localhost:9000/emails/clock@2x.png"
             }
           />
           <EmailStep
@@ -118,7 +118,7 @@ export const TeamInviteEmail = (
             iconsrc={
               IS_PRODUCTION
                 ? WEBAPP_URL + "/emails/user-check@2x.png"
-                : "http://localhost:3000/emails/user-check@2x.png"
+                : "http://localhost:9000/emails/user-check@2x.png"
             }
           />
         </div>

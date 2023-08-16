@@ -1,11 +1,12 @@
 import { expect } from "@playwright/test";
 
+// eslint-disable-next-line no-restricted-imports
 import { test } from "@calcom/web/playwright/lib/fixtures";
 
 test.describe("Preview", () => {
   test("Preview - embed-core should load", async ({ page }) => {
     await page.goto(
-      "http://localhost:3000/embed/preview.html?embedLibUrl=http://localhost:3000/embed/embed.js&bookerUrl=http://localhost:3000&calLink=pro/30min"
+      "http://localhost:9000/embed/preview.html?embedLibUrl=http://localhost:9000/embed/embed.js&bookerUrl=http://localhost:9000&calLink=pro/30min"
     );
     const libraryLoaded = await page.evaluate(() => {
       return new Promise((resolve) => {

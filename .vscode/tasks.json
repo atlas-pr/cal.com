@@ -11,8 +11,8 @@
     {
       "label": "Launch Cal.com Development terminals",
       "dependsOn": [
-        "Web App(3000)",
-        "Website(3001)",
+        "Web App(9000)",
+        "Website(9001)",
         "Embed Core(3100)",
         "Embed React(3101)",
         "Prisma Studio(5555)",
@@ -26,7 +26,7 @@
     },
     {
       // The name that shows up in terminal tab
-      "label": "Web App(3000)",
+      "label": "Web App(9000)",
       // The task will launch a shell
       "type": "shell",
       "command": "yarn dev",
@@ -36,7 +36,7 @@
       "problemMatcher": []
     },
     {
-      "label": "Website(3001)",
+      "label": "Website(9001)",
       "type": "shell",
       "command": "cd apps/website && yarn dev",
       "isBackground": false,

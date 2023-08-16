@@ -456,19 +456,19 @@ const nextConfig = {
         destination: "/apps/installed/conferencing",
         permanent: true,
       },
-      // OAuth callbacks when sent to localhost:3000(w would be expected) should be redirected to corresponding to WEBAPP_URL
+      // OAuth callbacks when sent to localhost:9000(w would be expected) should be redirected to corresponding to WEBAPP_URL
       ...(process.env.NODE_ENV === "development" &&
       // Safer to enable the redirect only when the user is opting to test out organizations
       process.env.ORGANIZATIONS_ENABLED &&
       // Prevent infinite redirect by checking that we aren't already on localhost
-      process.env.NEXT_PUBLIC_WEBAPP_URL !== "http://localhost:3000"
+      process.env.NEXT_PUBLIC_WEBAPP_URL !== "http://localhost:9000"
         ? [
             {
               has: [
                 {
                   type: "header",
                   key: "host",
-                  value: "localhost:3000",
+                  value: "localhost:9000",
                 },
               ],
               source: "/api/integrations/:args*",

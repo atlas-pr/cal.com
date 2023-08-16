@@ -14,11 +14,11 @@ declare let process: {
   };
 };
 
-export const nextServer = async ({ port = 3000 } = { port: 3000 }) => {
+export const nextServer = async ({ port = 9000 } = { port: 9000 }) => {
   // eslint-disable-next-line turbo/no-undeclared-env-vars
   const dev = process.env.E2E_DEV_SERVER === "1" ? true : false;
   if (dev) {
-    port = await detect(Math.round((1 + Math.random()) * 3000));
+    port = await detect(Math.round((1 + Math.random()) * 9000));
   }
   process.env.PLAYWRIGHT_TEST_BASE_URL =
     process.env.NEXT_PUBLIC_WEBAPP_URL =
