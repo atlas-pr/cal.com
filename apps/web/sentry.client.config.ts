@@ -3,6 +3,8 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 import * as Sentry from "@sentry/nextjs";
 
+import { ATLAS_API } from "@calcom/lib/constants";
+
 declare global {
   interface Window {
     Atlas?: {
@@ -18,7 +20,6 @@ Sentry.init({
 });
 
 Sentry.addGlobalEventProcessor((event) => {
-  const ATLAS_API = "https://atlas-dev.in.ngrok.io";
   const sessionId = window.Atlas?.recording?.getSessionId();
   if (sessionId) {
     event.tags = {

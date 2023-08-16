@@ -3,6 +3,8 @@ import type { DocumentContext, DocumentProps } from "next/document";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import { z } from "zod";
 
+import { ATLAS_APP_ID, ATLAS_BUNDLE } from "@calcom/lib/constants";
+
 import { csp } from "@lib/csp";
 
 type Props = Record<string, unknown> & DocumentProps;
@@ -34,8 +36,6 @@ class MyDocument extends Document<Props> {
   }
 
   render() {
-    const ATLAS_BUNDLE = "https://atlas-dev.in.ngrok.io/client-js/atlas.bundle.js";
-    const ATLAS_APP_ID = "4lyu8tx6nr";
     const { locale } = this.props.__NEXT_DATA__;
     const { isEmbed, embedColorScheme } = this.props;
     const nonceParsed = z.string().safeParse(this.props.nonce);
