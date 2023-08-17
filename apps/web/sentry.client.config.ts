@@ -7,10 +7,38 @@ import { ATLAS_API } from "@calcom/lib/constants";
 
 declare global {
   interface Window {
+    // Embed Atlas widget
     Atlas?: {
       recording?: {
-        getSessionId: () => string;
+        getSessionId: () => string | undefined;
       };
+      chat?: {
+        openWindow: () => void;
+      };
+      identify: (identity: {
+        userId: string | number;
+        name?: string | null | undefined;
+        email?: string | null | undefined;
+        phoneNumber?: string | null | undefined;
+        userHash?: string | null | undefined;
+        customFields?: Record<string, any>;
+        account?: Record<string, any>;
+        fields?: {
+          title?: string | null | undefined;
+          department?: string | null | undefined;
+          photo?: string | null | undefined;
+          street1?: string | null | undefined;
+          street2?: string | null | undefined;
+          city?: string | null | undefined;
+          country?: string | null | undefined;
+          postalCode?: string | null | undefined;
+          secondaryEmail?: string | null | undefined;
+
+          // both of these fields are deprecated and has been un-nested, are here only for backwards compatibility
+          accountName?: string;
+          phone?: string;
+        };
+      }) => void;
     };
   }
 }
