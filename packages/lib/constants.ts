@@ -97,3 +97,4 @@ export const ORGANIZATION_MIN_SEATS = 30;
 export const ATLAS_BUNDLE = process.env.NEXT_ATLAS_BUNDLE;
 export const ATLAS_APP_ID = process.env.NEXT_ATLAS_APP_ID;
 export const ATLAS_API = process.env.NEXT_ATLAS_API;
+export const SENTRY_DSN = process.env.NEXT_ATLAS_SENTRY_DSN;

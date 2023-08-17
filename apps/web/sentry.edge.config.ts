@@ -4,8 +4,10 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 import * as Sentry from "@sentry/nextjs";
 
+import { SENTRY_DSN } from "@calcom/lib/constants";
+
 Sentry.init({
-  dsn: "https://196663bf25a23c4a10e1246828e590be@o4504843938955264.ingest.sentry.io/4505714723127296",
+  dsn: SENTRY_DSN,
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,

@@ -943,11 +943,11 @@ const EventTypesPage = () => {
     const { atlasId, isVisitor, email, userId, appId } = getAtlasIdentity();
     console.log(atlasId, isVisitor, email, userId, appId);
     console.log(user);
-    if (user && atlasId && email && userId != user.id) {
+    if (user && atlasId && user.email && userId != user.id) {
       window.Atlas.identify({
         userId: user.id,
         name: user.name,
-        email: email,
+        email: user.email,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

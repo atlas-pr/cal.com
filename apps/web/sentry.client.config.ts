@@ -3,7 +3,7 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 import * as Sentry from "@sentry/nextjs";
 
-import { ATLAS_API } from "@calcom/lib/constants";
+import { ATLAS_API, SENTRY_DSN } from "@calcom/lib/constants";
 
 declare global {
   interface Window {
@@ -44,11 +44,12 @@ declare global {
 }
 
 Sentry.init({
-  dsn: "https://196663bf25a23c4a10e1246828e590be@o4504843938955264.ingest.sentry.io/4505714723127296",
+  dsn: SENTRY_DSN,
 });
 
 Sentry.addGlobalEventProcessor((event) => {
   const sessionId = window.Atlas?.recording?.getSessionId();
+  console.log("session id:", sessionId);
   if (sessionId) {
     event.tags = {
       ...(event.tags || {}),
