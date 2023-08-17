@@ -940,13 +940,14 @@ const EventTypesPage = () => {
   useEffect(() => {
     // this is the first page to land the user lands post login.
     if (!window.Atlas) return;
-
     const { atlasId, isVisitor, email, userId, appId } = getAtlasIdentity();
+    console.log(atlasId, isVisitor, email, userId, appId);
+    console.log(user);
     if (user && atlasId && email && userId != user.id) {
       window.Atlas.identify({
         userId: user.id,
         name: user.name,
-        email: user.email,
+        email: email,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
