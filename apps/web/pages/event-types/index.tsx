@@ -945,7 +945,7 @@ const EventTypesPage = () => {
     console.log(user);
     if (user && atlasId && user.email && userId != user.id) {
       window.Atlas.identify({
-        userId: user.id,
+        userId: user.email,
         name: user.name,
         email: user.email,
       });
