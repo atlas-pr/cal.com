@@ -943,7 +943,7 @@ const EventTypesPage = () => {
     const { atlasId, isVisitor, email, userId, appId } = getAtlasIdentity();
     console.log(atlasId, isVisitor, email, userId, appId);
     console.log(user);
-    if (user && atlasId && user.email && email !== user.userId) {
+    if (user && atlasId && user.email && user.email !== userId) {
       window.Atlas.identify({
         userId: user.email,
         name: user.name,
