@@ -68,7 +68,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         email: "pro@example.com",
       },
       verificationEmailLink:
-        "http://localhost:3000/api/auth/verify-email?token=b91af0eee5a9a24a8d83a3d3d6a58c1606496e94ced589441649273c66100f5b",
+        "http://localhost:9000/api/auth/verify-email?token=b91af0eee5a9a24a8d83a3d3d6a58c1606496e94ced589441649273c66100f5b",
     })
   );
   res.end();

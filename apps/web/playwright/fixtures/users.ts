@@ -502,7 +502,7 @@ export async function apiLogin(
   const data = {
     email: user.email ?? `${user.username}@example.com`,
     password: user.password ?? user.username!,
-    callbackURL: "http://localhost:3000/",
+    callbackURL: "http://localhost:9000/",
     redirect: "false",
     json: "true",
     csrfToken,

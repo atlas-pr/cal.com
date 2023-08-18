@@ -42,7 +42,7 @@ const calLink = searchParams.get("cal-link");
 if (only === "all" || only === "ns:default") {
   Cal("init", {
     debug: true,
-    calOrigin: "http://localhost:3000",
+    calOrigin: "http://localhost:9000",
   });
 
   Cal("inline", {
@@ -68,7 +68,7 @@ if (only === "all" || only === "ns:second") {
   // Create a namespace "second". It can be accessed as Cal.ns.second with the exact same API as Cal
   Cal("init", "second", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
 
   Cal.ns.second(
@@ -95,7 +95,7 @@ if (only === "all" || only === "ns:third") {
   // Create a namespace "third". It can be accessed as Cal.ns.second with the exact same API as Cal
   Cal("init", "third", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
 
   Cal.ns.third(
@@ -146,7 +146,7 @@ if (only === "all" || only === "ns:third") {
 if (only === "all" || only === "ns:fourth") {
   Cal("init", "fourth", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
   Cal.ns.fourth(
     [
@@ -190,7 +190,7 @@ if (only === "all" || only === "ns:fourth") {
 if (only === "all" || only === "ns:fifth") {
   Cal("init", "fifth", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
   Cal.ns.fifth([
     "inline",
@@ -214,7 +214,7 @@ if (only === "all" || only === "ns:fifth") {
 if (only === "all" || only === "prerender-test") {
   Cal("init", "prerendertestLightTheme", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
   Cal.ns.prerendertestLightTheme("preload", {
     calLink: "free",
@@ -224,7 +224,7 @@ if (only === "all" || only === "prerender-test") {
 if (only === "all" || only === "inline-routing-form") {
   Cal("init", "inline-routing-form", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
   Cal.ns["inline-routing-form"]([
     "inline",
@@ -246,7 +246,7 @@ if (only === "all" || only === "hideEventTypeDetails") {
   const identifier = "hideEventTypeDetails";
   Cal("init", identifier, {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
 
   Cal.ns.hideEventTypeDetails(
@@ -276,7 +276,7 @@ if (only === "all" || only === "hideEventTypeDetails") {
 if (only === "conflicting-theme") {
   Cal("init", "conflictingTheme", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
 
   Cal.ns.conflictingTheme("inline", {
@@ -297,12 +297,12 @@ if (only === "conflicting-theme") {
 
 Cal("init", "popupDarkTheme", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "popupHideEventTypeDetails", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal.ns.popupHideEventTypeDetails("ui", {
@@ -311,52 +311,52 @@ Cal.ns.popupHideEventTypeDetails("ui", {
 
 Cal("init", "popupReschedule", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "popupAutoTheme", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "popupTeamLinkLightTheme", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "popupTeamLinkDarkTheme", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "popupTeamLinkDarkTheme", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "popupTeamLinksList", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "popupPaidEvent", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "floatingButton", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "routingFormAuto", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 Cal("init", "routingFormDark", {
   debug: true,
-  origin: "http://localhost:3000",
+  origin: "http://localhost:9000",
 });
 
 if (only === "all" || only == "ns:floatingButton") {
@@ -379,7 +379,7 @@ if (only === "all" || only == "ns:monthView") {
   // Create a namespace "second". It can be accessed as Cal.ns.second with the exact same API as Cal
   Cal("init", "monthView", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
 
   Cal.ns.monthView(
@@ -407,7 +407,7 @@ if (only === "all" || only == "ns:weekView") {
   // Create a namespace "second". It can be accessed as Cal.ns.second with the exact same API as Cal
   Cal("init", "weekView", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
 
   Cal.ns.weekView(
@@ -435,7 +435,7 @@ if (only === "all" || only == "ns:columnView") {
   // Create a namespace "second". It can be accessed as Cal.ns.second with the exact same API as Cal
   Cal("init", "columnView", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:9000",
   });
 
   Cal.ns.columnView(

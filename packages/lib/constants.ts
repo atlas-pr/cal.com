@@ -11,11 +11,11 @@ export const WEBAPP_URL =
   RAILWAY_STATIC_URL ||
   HEROKU_URL ||
   RENDER_URL ||
-  "http://localhost:3000";
+  "http://localhost:9000";
 
 // OAuth needs to have HTTPS(which is not generally setup locally) and a valid tld(*.local isn't a valid tld)
 // So for development purpose, we would stick to localhost only
-export const WEBAPP_URL_FOR_OAUTH = IS_PRODUCTION ? WEBAPP_URL : "http://localhost:3000";
+export const WEBAPP_URL_FOR_OAUTH = IS_PRODUCTION ? WEBAPP_URL : "http://localhost:9000";
 
 /** @deprecated use `WEBAPP_URL` */
 export const BASE_URL = WEBAPP_URL;
@@ -93,3 +93,8 @@ export const ALLOWED_HOSTNAMES = JSON.parse(`[${process.env.ALLOWED_HOSTNAMES ||
 export const RESERVED_SUBDOMAINS = JSON.parse(`[${process.env.RESERVED_SUBDOMAINS || ""}]`) as string[];
 
 export const ORGANIZATION_MIN_SEATS = 30;
+
+export const ATLAS_BUNDLE = process.env.NEXT_ATLAS_BUNDLE;
+export const ATLAS_APP_ID = process.env.NEXT_ATLAS_APP_ID;
+export const ATLAS_API = process.env.NEXT_ATLAS_API;
+export const SENTRY_DSN = process.env.NEXT_ATLAS_SENTRY_DSN;

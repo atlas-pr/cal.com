@@ -14,7 +14,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: calendso
         ports:
-          - 5432:5432
+          - 6532:5432
     strategy:
       fail-fast: false
       matrix:

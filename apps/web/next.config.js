@@ -456,19 +456,19 @@ const nextConfig = {
         destination: "/apps/installed/conferencing",
         permanent: true,
       },
-      // OAuth callbacks when sent to localhost:3000(w would be expected) should be redirected to corresponding to WEBAPP_URL
+      // OAuth callbacks when sent to localhost:9000(w would be expected) should be redirected to corresponding to WEBAPP_URL
       ...(process.env.NODE_ENV === "development" &&
       // Safer to enable the redirect only when the user is opting to test out organizations
       process.env.ORGANIZATIONS_ENABLED &&
       // Prevent infinite redirect by checking that we aren't already on localhost
-      process.env.NEXT_PUBLIC_WEBAPP_URL !== "http://localhost:3000"
+      process.env.NEXT_PUBLIC_WEBAPP_URL !== "http://localhost:9000"
         ? [
             {
               has: [
                 {
                   type: "header",
                   key: "host",
-                  value: "localhost:3000",
+                  value: "localhost:9000",
                 },
               ],
               source: "/api/integrations/:args*",
@@ -504,3 +504,40 @@ const nextConfig = {
 };
 
 module.exports = () => plugins.reduce((acc, next) => next(acc), nextConfig);
+
+// Injected content via Sentry wizard below
+
+const { withSentryConfig } = require("@sentry/nextjs");
+
+module.exports = withSentryConfig(
+  module.exports,
+  {
+    // For all available options, see:
+    // https://github.com/getsentry/sentry-webpack-plugin#options
+
+    // Suppresses source map uploading logs during build
+    silent: true,
+
+    org: "atlas-dev-ee",
+    project: "calcom",
+  },
+  {
+    // For all available options, see:
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+
+    // Upload a larger set of source maps for prettier stack traces (increases build time)
+    widenClientFileUpload: true,
+
+    // Transpiles SDK to be compatible with IE11 (increases bundle size)
+    transpileClientSDK: true,
+
+    // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
+    tunnelRoute: "/monitoring",
+
+    // Hides source maps from generated client bundles
+    hideSourceMaps: true,
+
+    // Automatically tree-shake Sentry logger statements to reduce bundle size
+    disableLogger: true,
+  }
+);

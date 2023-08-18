@@ -70,6 +70,7 @@ import {
   Users,
 } from "@calcom/ui/components/icon";
 
+import getAtlasIdentity from "@lib/atlas/identify";
 import useMeQuery from "@lib/hooks/useMeQuery";
 
 import PageWrapper from "@components/PageWrapper";
@@ -436,7 +437,9 @@ export const EventTypeList = ({ group, groupIndex, readOnly, types }: EventTypeL
                                   name="Hidden"
                                   checked={!type.hidden}
                                   onCheckedChange={() => {
-                                    setHiddenMutation.mutate({ id: type.id, hidden: !type.hidden });
+                                    showToast("Unable to change the event type display", "error");
+                                    throw new Error("Unable to change the event type display");
+                                    // setHiddenMutation.mutate({ id: type.id, hidden: !type.hidden });
                                   }}
                                 />
                               </div>
@@ -933,6 +936,22 @@ const EventTypesPage = () => {
       !!orgBranding && !document.cookie.includes("calcom-profile-banner=1") && !user?.completedOnboarding
     );
   }, [orgBranding, user]);
+
+  useEffect(() => {
+    // this is the first page to land the user lands post login.
+    if (!window.Atlas) return;
+    const { atlasId, isVisitor, email, userId, appId } = getAtlasIdentity();
+    console.log(atlasId, isVisitor, email, userId, appId);
+    console.log(user);
+    if (user && atlasId && user.email && user.email !== userId) {
+      window.Atlas.identify({
+        userId: user.email,
+        name: user.name,
+        email: user.email,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
     <ShellMain

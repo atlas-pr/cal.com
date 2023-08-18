@@ -6,7 +6,7 @@ import * as constants from "@calcom/lib/constants";
 function setupEnvs({ WEBAPP_URL = "https://app.cal.com" } = {}) {
   Object.defineProperty(constants, "WEBAPP_URL", { value: WEBAPP_URL });
   Object.defineProperty(constants, "ALLOWED_HOSTNAMES", {
-    value: ["cal.com", "cal.dev", "cal-staging.com", "cal.community", "cal.local:3000", "localhost:3000"],
+    value: ["cal.com", "cal.dev", "cal-staging.com", "cal.community", "cal.local:9000", "localhost:9000"],
   });
   Object.defineProperty(constants, "RESERVED_SUBDOMAINS", {
     value: [ "app", "auth", "docs", "design", "console", "go", "status", "api", "saml", "www", "matrix", "developer", "cal", "my", "team", "support", "security", "blog", "learn", "admin"],
@@ -33,7 +33,7 @@ describe("Org Domains Utils", () => {
 
     it("should return a non valid org domain for localhost", () => {
       setupEnvs();
-      expect(orgDomainConfig("localhost:3000")).toEqual({
+      expect(orgDomainConfig("localhost:9000")).toEqual({
         currentOrgDomain: null,
         isValidOrgDomain: false,
       });
@@ -52,13 +52,13 @@ describe("Org Domains Utils", () => {
     });
 
     it("should handle a local web app with port url with a local subdomain hostname", () => {
-      setupEnvs({ WEBAPP_URL: "http://app.cal.local:3000" });
-      expect(getOrgSlug("acme.cal.local:3000")).toEqual("acme");
+      setupEnvs({ WEBAPP_URL: "http://app.cal.local:9000" });
+      expect(getOrgSlug("acme.cal.local:9000")).toEqual("acme");
     });
 
     it("should handle a local web app with port url with a non-local subdomain hostname", () => {
-      setupEnvs({ WEBAPP_URL: "http://app.cal.local:3000" });
-      expect(getOrgSlug("acme.cal.com:3000")).toEqual(null);
+      setupEnvs({ WEBAPP_URL: "http://app.cal.local:9000" });
+      expect(getOrgSlug("acme.cal.com:9000")).toEqual(null);
     });
   });
 });

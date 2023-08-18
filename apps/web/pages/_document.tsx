@@ -3,7 +3,7 @@ import type { DocumentContext, DocumentProps } from "next/document";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import { z } from "zod";
 
-import { IS_PRODUCTION } from "@calcom/lib/constants";
+import { ATLAS_APP_ID, ATLAS_BUNDLE } from "@calcom/lib/constants";
 
 import { csp } from "@lib/csp";
 
@@ -51,15 +51,12 @@ class MyDocument extends Document<Props> {
           <meta name="msapplication-TileColor" content="#ff0000" />
           <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb" />
           <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1C1C1C" />
-          {(!IS_PRODUCTION || process.env.VERCEL_ENV === "preview") && (
-            // eslint-disable-next-line @next/next/no-sync-scripts
-            <script
-              data-project-id="KjpMrKTnXquJVKfeqmjdTffVPf1a6Unw2LZ58iE4"
-              src="https://snippet.meticulous.ai/v1/stagingMeticulousSnippet.js"
-            />
-          )}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(()=>{"use strict";var t,e={appId:"${ATLAS_APP_ID}",v:2,q:[],call:function(){this.q.push(arguments)}};window.Atlas=e;var n=document.createElement("script");n.async=!0,n.src="${ATLAS_BUNDLE}";var s=document.getElementsByTagName("script")[0];null===(t=s.parentNode)||void 0===t||t.insertBefore(n,s)})();window.Atlas.call("start");`,
+            }}
+          />
         </Head>
-
         <body
           className="dark:bg-darkgray-50 desktop-transparent bg-subtle antialiased"
           style={
@@ -75,8 +72,8 @@ class MyDocument extends Document<Props> {
               : {}
           }>
           <Main />
-          <NextScript nonce={nonce} />
         </body>
+        <NextScript nonce={nonce} />
       </Html>
     );
   }
