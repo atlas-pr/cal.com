@@ -3,7 +3,7 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 import * as Sentry from "@sentry/nextjs";
 
-import { ATLAS_API } from "@calcom/lib/constants";
+import { ATLAS_API, SENTRY_DSN } from "@calcom/lib/constants";
 
 declare global {
   interface Window {
@@ -44,7 +44,7 @@ declare global {
 }
 
 Sentry.init({
-  dsn: "https://a9a12b8054ed956aa2442ab8a3728956@o4505726480482304.ingest.sentry.io/4505726482710528",
+  dsn: SENTRY_DSN,
 });
 
 Sentry.addGlobalEventProcessor((event) => {
